@@ -12,14 +12,14 @@
   - The Resources folder
   - AssetBundle fundamentals
   - AssetBundle usage patterns
-- Optimizing Unity UI
+- **Unity UI 优化（Optimizing Unity UI）**
   - A guide to optimizing Unity UI
   - Fundamentals of Unity UI
   - Unity UI Profiling Tools
   - Fill-rate, Canvases and input
   - Optimizing UI Controls
   - Other UI Optimization Techniques and Tips
-- Optimizing Graphics in Unity
+- **Unity内的图形优化（Optimizing Graphics in Unity）**
   - [渲染（Rendering）](/Rendering/Rendering.md)
   - [光照场景（Lighting Scenes）](/Rendering/Lighting-Scenes.md)
   - Auto Generate and Generate Lighting
