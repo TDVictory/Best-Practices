@@ -20,8 +20,8 @@
   - Optimizing UI Controls
   - Other UI Optimization Techniques and Tips
 - Optimizing Graphics in Unity
-  - [Rendering](/Rendering/Rendering.md)
-  - [Lighting Scenes](/Rendering/Lighting-Scenes.md)
+  - [渲染（Rendering）](/Rendering/Rendering.md)
+  - [光照场景（Lighting Scenes）](/Rendering/Lighting-Scenes.md)
   - Auto Generate and Generate Lighting
   - Lighting Settings
   - Multi-Scene editing
