@@ -24,7 +24,7 @@
   - [光照场景（Lighting Scenes）](/Rendering/Lighting-Scenes.md)
   - [自动生成光照与光照生成（Auto Generate and Generate Lighting）](/Rendering/Auto-Generate-and-Generate-Lighting.md)
   - [光照设置(Lighting Settings)](/Rendering/Lighting-Settings.md)
-  - Multi-Scene editing
+  - [多场景编辑(Multi-Scene editing)](/Rendering/Multi-Scene-editing.md)
   - Camera
   - Textures
   - Multithreaded Rendering & Graphics Jobs
