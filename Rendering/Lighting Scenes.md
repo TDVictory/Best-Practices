@@ -10,4 +10,5 @@
 - 无论是使用多场景编辑还是additive loading，确保所有的场景都有着相同的光照设置。
 
 [返回上一级](/Rendering/Rendering.md)
-[返回主页](#readme)
+
+[返回主页](/README.md)
