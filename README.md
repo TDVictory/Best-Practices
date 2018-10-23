@@ -23,7 +23,7 @@
   - [渲染（Rendering）](/Rendering/Rendering.md)
   - [光照场景（Lighting Scenes）](/Rendering/Lighting-Scenes.md)
   - [自动生成光照与光照生成（Auto Generate and Generate Lighting）](/Rendering/Auto-Generate-and-Generate-Lighting.md)
-  - Lighting Settings
+  - [光照设置(Lighting Settings)]（/Rendering/Lighting-Settings.md）
   - Multi-Scene editing
   - Camera
   - Textures
