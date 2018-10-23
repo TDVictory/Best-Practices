@@ -22,7 +22,7 @@
 - **Unity内的图形优化（Optimizing Graphics in Unity）**
   - [渲染（Rendering）](/Rendering/Rendering.md)
   - [光照场景（Lighting Scenes）](/Rendering/Lighting-Scenes.md)
-  - Auto Generate and Generate Lighting
+  - [自动生成光照与光照生成（Auto Generate and Generate Lighting）](/Rendering/Auto-Generate-and-Generate-Lighting.md)
   - Lighting Settings
   - Multi-Scene editing
   - Camera
