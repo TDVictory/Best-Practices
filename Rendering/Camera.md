@@ -1,6 +1,6 @@
 # 摄像机
 摄像机是Unity核心组件之一，任意一个Unity应用都重度依赖于它。这也意味着摄像机组件上具有大量的选项，
-如果没有合适地配置像[Clear](#Clear)，[Culling](#Culling)，[Skybox](#Skybox)这些选项，你将会得到一个质量极差的视觉效果。[XXXX](#jump)
+如果没有合适地配置像[Clear](#Clear)，[Culling](#Culling)，[Skybox](#Skybox)这些选项，你将会得到一个质量极差的视觉效果。
 
 ## <h2 id="Clear"> Clear（清除） </h2>
 在移动端的渲染上（使用Tile-Based），Clear的指令至关重要，Unity注重细节效果，因此在移动端开发上你只需要调整摄像机上的[Clear flags](#Clear-flags)，
@@ -29,6 +29,7 @@ Tile-based rendering 将视窗划分成许多32×32像素的小块（Tile）。�
 
 **注意**：这些优化运用于tile-based deferred rendering GPU 和 streaming GPU。
 
+<h2 id="Culling"> Culling（裁剪） </h2>
 ## <h2 id="Culling"> Culling（裁剪） </h2>
 裁剪发生在每个摄像机上，特别是当复数照相机同时被开启时，会对场景的效果产生极大的影响。裁剪主要分为两种**frustum**和**occlusion**裁剪：
 - [Frustum Culling](#Frustum-Culling)在每个Unity自带相机上，均会自动运行。
@@ -58,4 +59,4 @@ Frustum Culling（视截体裁剪）保证在摄像机视线范围外的物体�
 ![](/Image/Rendering/sceneculling.jpg)
 
 *Unity CPU 性能分析器在时间线视图上展示了主线程的性能。它表明有多个相机，并且你可以看到Unity对每个相机执行了裁剪*
-<span id="jump">Hello World</span>
+
