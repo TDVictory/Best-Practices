@@ -29,7 +29,7 @@ Tile-based rendering 将视窗划分成许多32×32像素的小块（Tile）。�
 
 **注意**：这些优化运用于tile-based deferred rendering GPU 和 streaming GPU。
 
-## <span id="Culling">Hello World</span>
+## <span id="jump">Hello World</span>
 裁剪发生在每个摄像机上，特别是当复数照相机同时被开启时，会对场景的效果产生极大的影响。裁剪主要分为两种**frustum**和**occlusion**裁剪：
 - [Frustum Culling](#Frustum-Culling)在每个Unity自带相机上，均会自动运行。
 - [Occlusion Culling](#Occlusion-Culling)将由开发者自己控制
