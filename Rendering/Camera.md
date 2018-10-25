@@ -2,17 +2,17 @@
 摄像机是Unity核心组件之一，任意一个Unity应用都重度依赖于它。这也意味着摄像机组件上具有大量的选项，
 如果没有合适地配置像[Clear](#clear)，[Culling](#culling)，[Skybox](#skybox)这些选项，你将会得到一个质量极差的视觉效果。
 
-## <tw id="clear">Clear（清除）</tw>
-在移动端的渲染上（使用Tile-Based），Clear的指令至关重要，Unity注重细节效果，因此在移动端开发上你只需要调整摄像机上的[Clear flags](#Clear-flags)，
+## <h2 id="clear">Clear（清除）</h2>
+在移动端的渲染上（使用Tile-Based），Clear的指令至关重要，Unity注重细节效果，因此在移动端开发上你只需要调整摄像机上的[Clear flags](#clear-flags)，
 不要选择“**Don't Clear**”即可。clear指令下的操作行为取决于你的开发平台以及显卡驱动，也同样依赖于你所选择的Clear flag参数，这些都将极大地影响最终的展示效果。因为Unity要么选择清除先前的内容并设置标签来忽略它，或者重新从内存中将其读取出来。不要在GPU运行时执行这些无用的Clear操作——然而这是在桌面程序、控制台中能经常看到的情况。
 
-### <h3 id="Clear-flags"> Clear flags （清除标签）</h3>
+### <h3 id="clear-flags"> Clear flags （清除标签）</h3>
 在移动端，Unity在创建新场景时都会使用其自带的天空盒（它名称为*Default-Skybox*）,这是十分消耗计算性能的，请避免这么操作。请关闭天空盒渲染，并将**Camera.clearFlags**设置为 SolidColor。然后前往**Lighting Settings**（位置：**Window-Lighting-Setting**）窗口，移除天空盒材质，并将**Ambient Source**设置为*Color*。
 
 ### Discard and Restore buffer（丢弃和恢复缓存）
 在高通GPU上运行**OpenGLES**，Unity只会丢弃帧缓冲（framebuffer）来避免恢复帧缓冲。在PVR和Mali的GPU中，Unity会通过清除来避免帧缓冲的恢复。
 
-在移动设备中，显卡内存上的移入或移出操作是十分消耗资源的，因为这些设备使用[shared memory（共享内存）](#Share-Memory)的结构，这意味着CPU与GPU共享这相同的物理内存。在像高通，PowerVR抑或是Apple Aseries这样的Tile-Based GPU上，在logical buffer（逻辑缓存？）读取和存储数据会消耗大量的系统时间和电量。将每个Tile的内容从share buffer传递到framebuffer内的一部分，这是大量资源活动的一个重要原因。
+在移动设备中，显卡内存上的移入或移出操作是十分消耗资源的，因为这些设备使用[shared memory（共享内存）](#share-Memory)的结构，这意味着CPU与GPU共享这相同的物理内存。在像高通，PowerVR抑或是Apple Aseries这样的Tile-Based GPU上，在logical buffer（逻辑缓存？）读取和存储数据会消耗大量的系统时间和电量。将每个Tile的内容从share buffer传递到framebuffer内的一部分，这是大量资源活动的一个重要原因。
 
 ### Tile-based Rendering
 Tile-based rendering 将视窗划分成许多32×32像素的小块（Tile）。并将它们存储在靠近GPU的更快的内存里（keeps these tiles in faster memory closer to the GPU）。在这些更小的内存与帧缓冲之间的复制操作只会花费较少的时间，因为内存操作要比算法操作慢得多。
