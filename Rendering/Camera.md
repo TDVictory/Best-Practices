@@ -2,11 +2,11 @@
 摄像机是Unity核心组件之一，任意一个Unity应用都重度依赖于它。这也意味着摄像机组件上具有大量的选项，
 如果没有合适地配置像[Clear](#Clear)，[Culling](#Culling)，[Skybox](#Skybox)这些选项，你将会得到一个质量极差的视觉效果。
 
-## <h2 id="Clear">Clear（清除）</h2>
+## <h2 id="Clear"> Clear（清除） </h2>
 在移动端的渲染上（使用Tile-Based），Clear的指令至关重要，Unity注重细节效果，因此在移动端开发上你只需要调整摄像机上的[Clear flags](#Clear-flags)，
 不要选择“**Don't Clear**”即可。clear指令下的操作行为取决于你的开发平台以及显卡驱动，也同样依赖于你所选择的Clear flag参数，这些都将极大地影响最终的展示效果。因为Unity要么选择清除先前的内容并设置标签来忽略它，或者重新从内存中将其读取出来。不要在GPU运行时执行这些无用的Clear操作——然而这是在桌面程序、控制台中能经常看到的情况。
 
-### <h3 id="Clear-flags">Clear flags（清除标签）</h3>
+### <h3 id="Clear-flags"> Clear flags （清除标签）</h3>
 在移动端，Unity在创建新场景时都会使用其自带的天空盒（它名称为*Default-Skybox*）,这是十分消耗计算性能的，请避免这么操作。请关闭天空盒渲染，并将**Camera.clearFlags**设置为 SolidColor。然后前往**Lighting Settings**（位置：**Window-Lighting-Setting**）窗口，移除天空盒材质，并将**Ambient Source**设置为*Color*。
 
 ### Discard and Restore buffer（丢弃和恢复缓存）
@@ -29,7 +29,7 @@ Tile-based rendering 将视窗划分成许多32×32像素的小块（Tile）。�
 
 **注意**：这些优化运用于tile-based deferred rendering GPU 和 streaming GPU。
 
-## Culling（裁剪）
+## <h2 id="Culling"> Culling（裁剪） </h2>
 裁剪发生在每个摄像机上，特别是当复数照相机同时被开启时，会对场景的效果产生极大的影响。裁剪主要分为两种**frustum**和**occlusion**裁剪：
 - [Frustum Culling](#Frustum-Culling)在每个Unity自带相机上，均会自动运行。
 - [Occlusion Culling](#Occlusion-Culling)将由开发者自己控制
