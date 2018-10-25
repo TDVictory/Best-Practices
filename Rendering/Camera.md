@@ -21,7 +21,7 @@ Tile-based rendering 将视窗划分成许多32×32像素的小块（Tile）。�
 
 **注意**：少于16个像素的视窗可能再一些特定的芯片组上可能会处理的十分缓慢，这是因为这些芯片获取信息的方式不同所造成的。举个例子，将视窗设置成2×2像素，事实上可能比设置成16×16像素还要慢。这种运行缓慢是设备自身特有的，也不是超出Unity可以控制的部分，所以在你设置的时候不能忽略这个问题。
 
-### RenderTexture Switching（切换渲染贴图）
+### RenderTexture Switching（纹理切换）
 在你切换渲染目标时，显卡驱动会执行对帧缓冲的读取和存储操作。举个例子来说，如果你在连续的两帧中对一个视图的颜色缓冲和贴图进行渲染，系统会在shared memory 和GPU中重复传递（读取和存储）贴图的内容。
 
 ### Framebuffer Compression（帧缓冲压缩）
@@ -29,5 +29,30 @@ Tile-based rendering 将视窗划分成许多32×32像素的小块（Tile）。�
 
 **注意**：这些优化运用于tile-based deferred rendering GPU 和 streaming GPU。
 
-## Culling（剔除）
+## Culling（裁剪）
+裁剪发生在每个摄像机上，特别是当复数照相机同时被开启时，会对场景的效果产生极大的影响。裁剪主要分为两种**frustum**和**occlusion**裁剪：
+- [Frustum Culling](#Frustum-Culling)在每个Unity自带相机上，均会自动运行。
+- [Occlusion Culling](#Occlusion-Culling)将由开发者自己控制
+
+### <h3 id="Frustum-Culling">Frustum Culling（视截体裁剪）</h3>
+Frustum Culling（视截体裁剪）保证在摄像机视线范围外的物体不会被渲染，从而节省渲染性能。
+
+![](/Image/Rendering/occlusionfrustumculling.jpg)
+*Frustum Culling（视截体裁剪）的例子*
+
+**注意**：Frustum Culling（视截体裁剪）在2017.1及后续版本jobified（搜不到意思，估计是已经默认了不用管了），并且Unity现在也首先采用通过层（layer）裁剪的方式。通过层来裁剪也意味着Unity只会裁剪摄像机使用的层，并且忽略其他层的物体。总而言之，Unity都是基于相机视截体来裁剪物体的。
+
+### <h3 id="Occlusion-Culling">Occlusion Culling（遮挡裁剪）</h3>
+当你开启了Occlusion Culling（遮挡裁剪）时，Unity将不再渲染相机看不见的物体。举个例子，如果门是关着的，相机看不见房间内的东西，那么渲染房间就是没有必要的。
+
+![](/Image/Rendering/occlusionfullculling.jpg)
+*Occlusion Culling（遮挡裁剪）的例子*
+
+如果你开启了Occlusion Culling（遮挡裁剪），它可以很大程度上帮你提升性能，但是它会占用更多的硬盘空间和RAM，因为Unity Umbra integration在搭建时将烘培遮罩数据，Unity在加载一个场景时需要将它从硬盘加载到RAM。
+
+### Multiple Camera（多个摄像机）
+当你在场景里使用多个摄像机时，每个摄像机上的裁剪与渲染会有一个大量的混合。Unity在2017.1版本后通过层裁剪（layer culling）来减少裁剪开销，但是如果摄像机不使用不同的层来构造渲染内容的话，这就没有任何效果了。
+
+![](/Image/Rendering/sceneculling.jpg)
+*Unity CPU 性能分析器在时间线视图上展示了主线程的性能。它表明有多个相机，并且你可以看到Unity对每个相机执行了裁剪*
 
