@@ -150,4 +150,5 @@ Level Of Detail（LOD）渲染允许你能够在物体离摄像机越远时减�
 如果不能创建一个高质量的LOD，你也可以通过运行时的网格合并（Runtime Mesh Combination）来获得一个不错的效果，您可以在场景更改或加载期间运行该组合。但是使用该技术时帧率可能会降低，因此通常不建议用于移动设备。
 
 [返回上一级](/Rendering/Rendering.md)
+
 [返回主页](/README.md)
