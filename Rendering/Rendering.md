@@ -2,7 +2,7 @@
 在Unity中图形渲染是一个十分复杂的工作。在本章节中，我们提供一个渲染的基础概念理解，和最好的有关降低GPU渲染工作的练习。
 - [光照场景](/Rendering/Lighting-Scenes.md)
 - [相机](/Rendering/Camera.md)
-- 纹理贴图
+- [纹理贴图](/Rendering/Textures.md)
 - 多线程渲染&图形工作
 - 帧缓存
 - 着色器
